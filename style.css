@@ -10,8 +10,20 @@ header h1 {
   text-align: center;
 }
 
+h2 {
+  text-align: center;
+  padding-top: 15px;
+}
+
+.start_section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
 .grid_container {
-  margin-top: 20px;
+  margin-top: 40px;
   margin-left: auto;
   margin-right: auto;
   width: 450px;
