@@ -8,7 +8,7 @@ function createPlayer (input_name, input_identifier) {
 
 // gameboard object
 const gameboard = (function () {
-  let board = ["", "", "", "", "", "", "", "", ""];
+  let board = ["X", "O", "", "", "", "", "", "", ""];
 
   const reset = () => {
     board = ["", "", "", "", "", "", "", "", ""];
@@ -38,6 +38,9 @@ const gameboard = (function () {
   };
 
   const makemove = (identifier, index) => {
+    if (board[index] !== "") {
+      return 3; // player play in spots that are already taken
+    }
     board[index] = identifier;
     if (checkwin()) {
       reset();
@@ -76,9 +79,11 @@ const gamecontrol = (function () {
       current = player1;
       console.log("Game end with tie, ");
       console.log("The next is ", current.name, " turn");
-    } else {
+    } else if (res === 0) {
       console.log("Game end with ", current.name, " wins");
       console.log("The next is ", current.name, " turn");
+    } else if (res === 3) {
+      console.log("player play in spots that are already taken");
     }
     return res;
   };
@@ -86,3 +91,16 @@ const gamecontrol = (function () {
   return {taketurn};
 })();
 
+// displaycontrol object
+const displaycontrol = (function () {
+  const renderboard = () => {
+    for (var i = 0; i < 9; i++) {
+      const identifier = gameboard.getBoard()[i];
+      const grid = document.getElementById(i);
+      console.log(identifier);
+      grid.innerHTML = `<p>${identifier}</p>`;
+    }
+  };
+
+  return {renderboard};
+})();

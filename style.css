@@ -1,0 +1,38 @@
+body {
+  margin: 0;
+}
+
+header {
+  border-bottom: 1pt solid black;
+}
+
+header h1 {
+  text-align: center;
+}
+
+.grid_container {
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 450px;
+  height: 450px;
+  display: grid;
+  grid-template-columns: repeat(3, 150px);
+  grid-template-rows: repeat(3, 150px);
+  border-left: 1pt solid black;
+  border-bottom: 1pt solid black;
+}
+
+.grid {
+  border-top: 1pt solid black;
+  border-right: 1pt solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center
+}
+
+.grid p {
+  margin: 0;
+  font-size: 50px;
+  font-weight: bold;
+}
